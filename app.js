@@ -1,55 +1,52 @@
 /*Rock paper scissors game
-1.make a function computerPlay that will randomly return 
-'rock' or 'paper' or 'scissors' -> use this function for AI to play 
-
-2. make a function that plays a single round of Rock Paper Scissors. The function
-should take two parameters
-
-3.playerSelection and computerSelection and return a string that includes who won the game
-is it you or the pc with 'if ' statment
-
-rock > scissors
-scissors > paper
-paper > rock
-
-4.make playerSelection function case-insensitive
-
-5.return the function return not the console.log them
-
-6., write new function game() and inside create a loop that will let you play 5 times
 
 TODO:
 1. add counter on wins
-2. create display
+2. announce a winner after 5 rounds
 */
 
+//constants for buttons
+const rockButton = document.getElementById('rock');
+const paperButton = document.getElementById('paper');
+const scissorsButton = document.getElementById('scissors');
 
-//computer randomizer
-let plays = ["Rock", "Paper", "Scissors"];
+
+//Event listener to monitor button press and assign
+rockButton.addEventListener('click', () => {
+    let playerSelection = "rock";
+    let computerSelection = computerPlay();
+    playRound(playerSelection, computerSelection);
+});
+
+paperButton.addEventListener('click', () => {
+    let playerSelection = "paper";
+    let computerSelection = computerPlay();
+    playRound(playerSelection, computerSelection);
+});
+
+scissorsButton.addEventListener('click', () => {
+    let playerSelection = "scissors";
+    let computerSelection = computerPlay();
+    playRound(playerSelection, computerSelection);
+});
+
+//computer randomizer to play three different plays
 function computerPlay() {
+    let plays = ["Rock", "Paper", "Scissors"];
     return plays[~~(Math.random() * plays.length)];
 }
 
-//playing round
+//playing one round of this game 
 function playRound(playerSelection, computerSelection) {
     playerSelection = playerSelection.toLowerCase();
     computerSelection = computerSelection.toLowerCase();
 
-    if (playerSelection == computerSelection)
-        alert("It's a TIE!");
-    else if ((computerSelection == "rock" && playerSelection == "scissors") ||
-        (computerSelection == "scissors" && playerSelection == "paper") ||
-        (computerSelection == "paper" && playerSelection == "rock"))
-        alert("ROBOTS WIN THIS BATTLE!") 
-        // TODO: add counter for every win in this game for AI wins
+    if (playerSelection === computerSelection)
+        console.log("It's a TIE!");
+    else if ((computerSelection === "rock" && playerSelection === "scissors") ||
+        (computerSelection === "scissors" && playerSelection === "paper") ||
+        (computerSelection === "paper" && playerSelection === "rock"))
+        console.log("ROBOTS WIN THIS BATTLE!")
     else
-        alert("You got me human, but only this time!");
+        console.log("You got me human, but only this time!");
 }
-
-function game() {
-    for (let i = 0; i < 5; i++) {
-        let playerSelection = window.prompt("Play human");
-        const computerSelection = computerPlay();
-    }
-}
-alert(game())
