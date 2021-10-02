@@ -34,7 +34,7 @@ body {
     font-size: 3rem;
 }
 
-.results-score {
+.results-score-you,.results-score-pc {
     margin-left: .1rem;
     color: #333;
 }
