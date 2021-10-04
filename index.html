@@ -5,23 +5,33 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Rock Paper Scissors Game</title>
     <link rel="stylesheet" href="style.css">
     <script src="app.js" defer></script>
 </head>
 
 <body>
-    <div id="selections">
-        <button id="rock">✊</button>
-        <button id="paper">👋</button>
-        <button id="scissors">✌️</button>
-    </div>
-    <div class="results">
-        <div>You
-            <span class="results-score-you" data-you-score>0</span>
+    <div class="container">
+        <div class="header">
+            <h1>Rock Paper Scissors Game</h1>
+            <h2>YOU vs AI</h2>
+            <h3>who will be the winner?</h3>
         </div>
-        <div>Computer
-            <span class="results-score-pc" data-computer-score>0</span>
+        <div id="selections">
+            <button id="rock">✊</button>
+            <button id="paper">👋</button>
+            <button id="scissors">✌️</button>
+        </div>
+        <div class="results">
+            <div class="you-results">You
+                <div id="results-score-you" data-you-score>0</div>
+            </div>
+            <div>Computer
+                <div id="results-score-pc" data-computer-score>0</div>
+            </div>
+        </div>
+        <div class="button-refresh">
+            <button id="refresh-btn" type="button" onClick='Refresh()'>Refresh</button>
         </div>
     </div>
 </body>
