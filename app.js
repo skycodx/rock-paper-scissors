@@ -9,6 +9,9 @@ TODO:
 const rockButton = document.getElementById('rock');
 const paperButton = document.getElementById('paper');
 const scissorsButton = document.getElementById('scissors');
+const computerScoreSpan = document.querySelector('[data-computer-score]');
+const youScoreSpan = document.querySelector('[data-you-score]');
+
 
 
 //Event listener to monitor button press and assign
@@ -46,7 +49,12 @@ function playRound(playerSelection, computerSelection) {
     else if ((computerSelection === "rock" && playerSelection === "scissors") ||
         (computerSelection === "scissors" && playerSelection === "paper") ||
         (computerSelection === "paper" && playerSelection === "rock"))
-        console.log("ROBOTS WIN THIS BATTLE!")
+        incrementScore(computerScoreSpan)
     else
-        console.log("You got me human, but only this time!");
+        incrementScore(youScoreSpan)
+
+}
+
+function incrementScore(scoreSpan){
+    scoreSpan.innerText = parseInt(scoreSpan.innerText) +1
 }
