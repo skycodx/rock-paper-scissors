@@ -1,16 +1,18 @@
 /*Rock paper scissors game
 
-TODO:
-1. add counter on wins
-2. announce a winner after 5 rounds
+TODO list:
+add pre-game buttons to choose how many times you want to play; 3 or 5
+add animations to make it look nice
+add popup window to show who is the winner***
 */
 
-//constants for buttons
+//Constants for buttons
 const rockButton = document.getElementById('rock');
 const paperButton = document.getElementById('paper');
 const scissorsButton = document.getElementById('scissors');
 const computerScoreSpan = document.querySelector('[data-computer-score]');
 const youScoreSpan = document.querySelector('[data-you-score]');
+const reloadButton = document.getElementById('refresh-btn');
 
 
 
@@ -33,28 +35,50 @@ scissorsButton.addEventListener('click', () => {
     playRound(playerSelection, computerSelection);
 });
 
-//computer randomizer to play three different plays
+//Computer randomizer to play three different plays
 function computerPlay() {
     let plays = ["Rock", "Paper", "Scissors"];
     return plays[~~(Math.random() * plays.length)];
 }
 
-//playing one round of this game 
+//Increment div +1 
+function incrementScore(scoreSpan) {
+    scoreSpan.innerText = parseInt(scoreSpan.innerText) + 1
+}
+
+//Playing one round of this game 
 function playRound(playerSelection, computerSelection) {
     playerSelection = playerSelection.toLowerCase();
     computerSelection = computerSelection.toLowerCase();
 
-    if (playerSelection === computerSelection)
+    if (playerSelection === computerSelection) {
         console.log("It's a TIE!");
-    else if ((computerSelection === "rock" && playerSelection === "scissors") ||
+    } else if ((computerSelection === "rock" && playerSelection === "scissors") ||
         (computerSelection === "scissors" && playerSelection === "paper") ||
-        (computerSelection === "paper" && playerSelection === "rock"))
+        (computerSelection === "paper" && playerSelection === "rock")) {
         incrementScore(computerScoreSpan)
-    else
-        incrementScore(youScoreSpan)
+        //Counter until 5 to show that computer wins
+        if (computerScoreSpan.innerText == 5) {
+            alert("Computer win!");
+            document.getElementById('rock').disabled = true;
+            document.getElementById('paper').disabled = true;
+            document.getElementById('scissors').disabled = true;
+        }
 
+    } else {
+        incrementScore(youScoreSpan)
+        //Counter until 5 to show that you win
+        if (youScoreSpan.innerText == 5) {
+            alert("You win!");
+            document.getElementById('rock').disabled = true;
+            document.getElementById('paper').disabled = true;
+            document.getElementById('scissors').disabled = true;
+        }
+
+    }
 }
 
-function incrementScore(scoreSpan){
-    scoreSpan.innerText = parseInt(scoreSpan.innerText) +1
+//Refresh button
+function Refresh() {
+    window.parent.location = window.parent.location.href;
 }
