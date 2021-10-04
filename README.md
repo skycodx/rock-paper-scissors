@@ -7,3 +7,5 @@ What I've learned
   -create refresh button
  
  This was a best kind of intro into the DOM - JavaScript
+ 
+ Live preview: https://skycodx.github.io/rock-paper-scissors/
