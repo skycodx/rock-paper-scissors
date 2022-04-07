@@ -8,4 +8,4 @@ What I've learned
  
  This was a best kind of intro into the DOM - JavaScript
  
- Live preview: https://skycodx.github.io/rock-paper-scissors/
+ Live preview: https://srdocraul.github.io/rock-paper-scissors/
